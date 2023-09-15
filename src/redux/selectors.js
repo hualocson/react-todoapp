@@ -18,6 +18,7 @@ export const todoRemainingSelector = createSelector(
 	filterStatusSelector,
 	filterPrioritiesSelector,
 	(todoList, searchText, status, priorities) => {
+		if(!todoList || todoList.length === 0) return []
 		// status => All, Completed, To do
 		return todoList.filter((todo) => {
 			if (status === "All")
